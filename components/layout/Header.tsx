@@ -87,9 +87,10 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
         </div>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer: wrapped in a clipping layer so the off-screen panel never widens the page */}
+      <div className={cn('fixed inset-0 z-50 overflow-hidden xl:hidden', !open && 'pointer-events-none invisible')}>
       <div
-        className={cn('fixed inset-0 z-50 bg-ink/70 transition-opacity duration-300 xl:hidden', open ? 'opacity-100' : 'pointer-events-none opacity-0')}
+        className={cn('absolute inset-0 bg-ink/70 transition-opacity duration-300', open ? 'opacity-100' : 'opacity-0')}
         onClick={() => setOpen(false)}
         aria-hidden="true"
       />
@@ -99,8 +100,8 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
         aria-modal="true"
         aria-label="Navigation menu"
         className={cn(
-          'bg-green-gradient fixed inset-y-0 right-0 z-50 flex w-[86%] max-w-sm flex-col border-l border-gold/40 transition-transform duration-300 xl:hidden',
-          open ? 'translate-x-0' : 'invisible translate-x-full',
+          'bg-green-gradient absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col border-l border-gold/40 transition-transform duration-300',
+          open ? 'translate-x-0' : 'translate-x-full',
         )}
       >
         <div className="flex h-20 items-center justify-between border-b border-gold/25 px-5">
@@ -138,6 +139,7 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
             Request Information
           </Link>
         </div>
+      </div>
       </div>
     </header>
   )

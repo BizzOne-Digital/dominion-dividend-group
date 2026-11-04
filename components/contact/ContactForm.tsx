@@ -96,7 +96,7 @@ export function ContactForm({ categories, defaultCategory }: { categories: strin
         {errors.message && <p id="message-err" className="mt-1.5 text-sm text-red-800">{errors.message}</p>}
       </div>
       {/* Honeypot: hidden from people, filled by bots */}
-      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+      <div aria-hidden="true" className="sr-only">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
