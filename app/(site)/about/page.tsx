@@ -6,7 +6,7 @@ import { getAboutContent } from '@/lib/content'
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Dominion Dividend Group Management Company, a proposed Canadian corporation in its pre-launch development stage, building governance, operations, and compliance readiness.',
+    'Learn about Dominion Dividend Group Management Company, a Canadian corporation in its pre-launch development stage, building governance, operations, and compliance readiness.',
   alternates: { canonical: '/about' },
   openGraph: { title: 'About Dominion Dividend Group', url: '/about' },
 }

@@ -25,7 +25,7 @@ export default function AboutEditor() {
         <FormSection title="Who We Are">
           <TextField label="Heading" value={data.whoWeAreTitle} onChange={(v) => update({ whoWeAreTitle: v })} maxLength={120} />
           <TextArea label="Text" rows={5} value={data.whoWeAreText} onChange={(v) => update({ whoWeAreText: v })} hint="Separate paragraphs with a blank line." maxLength={2000} />
-          <TextField label="Status Note" value={data.statusNote} onChange={(v) => update({ statusNote: v })} hint="Keep the pre-incorporation statement until incorporation is confirmed." maxLength={300} />
+          <TextField label="Status Note" value={data.statusNote} onChange={(v) => update({ statusNote: v })} maxLength={300} />
           <AdminImageField label="Section Image" value={data.whoWeAreImageUrl} onChange={(v) => update({ whoWeAreImageUrl: v })} />
         </FormSection>
 

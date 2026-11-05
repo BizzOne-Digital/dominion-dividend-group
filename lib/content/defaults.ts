@@ -118,8 +118,8 @@ export const defaultAbout: AboutContent = {
   heroImageUrl: IMAGES.mountainsClouds,
   whoWeAreTitle: 'Who We Are',
   whoWeAreText:
-    'Dominion Dividend Group Management Company Inc. is a proposed Canadian corporation being developed to establish the corporate, operational, governance, financial, compliance, and technology infrastructure for a future investment-management organization.',
-  statusNote: 'The organization is currently in its pre-launch development and pre-incorporation stage.',
+    'Dominion Dividend Group Management Company Inc. is a Canadian corporation being developed to establish the corporate, operational, governance, financial, compliance, and technology infrastructure for a future investment-management organization.',
+  statusNote: 'The organization is currently in its pre-launch development stage.',
   whoWeAreImageUrl: IMAGES.architecture,
   missionTitle: 'Our Mission',
   missionText: DEFAULT_MISSION,
@@ -167,7 +167,7 @@ export const defaultContact: ContactContent = {
   intro:
     'For corporate, professional services, or development-related inquiries, please submit the form below. A member of the team will respond by appointment.',
   businessName: 'Dominion Dividend Group Management Company Inc.',
-  statusNote: 'Proposed corporate name — incorporation pending',
+  statusNote: '',
   email: 'info@dominiondividendgroup.com',
   phone: '',
   showPhone: false,
