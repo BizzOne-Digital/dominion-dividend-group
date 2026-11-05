@@ -61,6 +61,8 @@ export const AboutContentModel = singleton(
       initiativesTitle: String,
       initiatives: [new Schema({ title: String, description: String }, { _id: false })],
       initiativesDisclaimer: String, initiativesImageUrl: String,
+      shareStructureVisible: Boolean, shareStructureTitle: String,
+      shareStructureRows: [new Schema({ label: String, value: String }, { _id: false })],
     },
     opts,
   ),

@@ -2,7 +2,7 @@
 
 import { AdminPageHeader } from '@/components/admin/AdminShell'
 import { AdminImageField } from '@/components/admin/AdminImageField'
-import { FormSection, IconSelect, ItemList, LoadingBlock, SaveBar, StringList, TextArea, TextField } from '@/components/admin/fields'
+import { FormSection, IconSelect, ItemList, LoadingBlock, SaveBar, StringList, TextArea, TextField, Toggle } from '@/components/admin/fields'
 import { useContentEditor } from '@/components/admin/useContentEditor'
 import type { AboutContent, IconItem } from '@/lib/validation'
 
@@ -51,6 +51,22 @@ export default function AboutEditor() {
                   <IconSelect value={item.icon} onChange={(v) => upd({ icon: v as IconItem['icon'] })} />
                 </div>
                 <TextArea label="Description" rows={2} value={item.description} onChange={(v) => upd({ description: v })} maxLength={600} />
+              </>
+            )}
+          />
+        </FormSection>
+
+        <FormSection title="Share Structure">
+          <Toggle label="Show on About page" checked={data.shareStructureVisible} onChange={(v) => update({ shareStructureVisible: v })} />
+          <TextField label="Heading" value={data.shareStructureTitle} onChange={(v) => update({ shareStructureTitle: v })} maxLength={200} />
+          <ItemList
+            label="Rows" itemLabel="Row" max={10} items={data.shareStructureRows}
+            onChange={(v) => update({ shareStructureRows: v })}
+            create={() => ({ label: 'New row', value: '' })}
+            render={(item, upd) => (
+              <>
+                <TextField label="Label" value={item.label} onChange={(v) => upd({ label: v })} maxLength={120} />
+                <TextArea label="Value" rows={2} value={item.value} onChange={(v) => upd({ value: v })} maxLength={600} />
               </>
             )}
           />

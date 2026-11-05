@@ -123,6 +123,9 @@ export const aboutSchema = z.object({
   initiatives: z.array(z.object({ title: text(120), description: longText(800) })).max(6),
   initiativesDisclaimer: longText(800),
   initiativesImageUrl: imageUrl,
+  shareStructureVisible: z.boolean(),
+  shareStructureTitle: text(200),
+  shareStructureRows: z.array(z.object({ label: text(120), value: longText(600) })).max(10),
 })
 export type AboutContent = z.infer<typeof aboutSchema>
 

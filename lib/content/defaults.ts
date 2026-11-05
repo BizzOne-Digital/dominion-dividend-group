@@ -152,6 +152,14 @@ export const defaultAbout: AboutContent = {
   initiativesDisclaimer:
     'These initiatives are under development and should not be interpreted as currently operating regulated businesses.',
   initiativesImageUrl: IMAGES.mountainsNight,
+  shareStructureVisible: true,
+  shareStructureTitle: 'Share Structure — Dominion Dividend Group Management Company Inc.',
+  shareStructureRows: [
+    { label: 'Six classes of shares', value: 'Class A (Founder) · Class B (Seed Round 1) · Class C (Seed Round 2) · Class D (Ordinary) · Class E (Seed Round 1 successor) · Class F (Seed Round 2 successor)' },
+    { label: 'Voting rights per share', value: 'A — 10 · B — 8 · C — 5 · D, E, F — 1' },
+    { label: 'Dividend and surplus participation weights', value: 'A — 4 · B and E — 3 · C and F — 1.5 · D — 1' },
+    { label: 'Designed ownership on completion of Seed Round 2', value: 'Founder 56.7% · Seed Round 1 investors 33.3% · Seed Round 2 investors 10.0%' },
+  ],
 }
 
 export const defaultContact: ContactContent = {

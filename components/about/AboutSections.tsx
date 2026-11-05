@@ -92,6 +92,26 @@ export function Framework({ c }: { c: AboutContent }) {
   )
 }
 
+export function ShareStructure({ c }: { c: AboutContent }) {
+  return (
+    <section className="bg-ivory" aria-labelledby="share-title">
+      <Container className="py-16 sm:py-24">
+        <Reveal>
+          <h2 id="share-title" className="max-w-4xl text-3xl leading-tight font-semibold text-ink sm:text-4xl">{c.shareStructureTitle}</h2>
+          <dl className="mt-10 divide-y divide-gold/30 border-y border-gold/40">
+            {c.shareStructureRows.map((r) => (
+              <div key={r.label} className="grid gap-2 py-5 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] md:gap-8">
+                <dt className="font-serif text-xl font-semibold text-ink">{r.label}</dt>
+                <dd className="leading-relaxed text-text">{r.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+      </Container>
+    </section>
+  )
+}
+
 export function FutureInitiatives({ c }: { c: AboutContent }) {
   return (
     <section className="relative isolate overflow-hidden bg-ink text-ivory" aria-labelledby="initiatives-title">

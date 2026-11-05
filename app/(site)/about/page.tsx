@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/ui/PageHero'
-import { Framework, FutureInitiatives, MissionVision, WhoWeAre } from '@/components/about/AboutSections'
+import { Framework, FutureInitiatives, MissionVision, ShareStructure, WhoWeAre } from '@/components/about/AboutSections'
 import { getAboutContent } from '@/lib/content'
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ export default async function AboutPage() {
       <WhoWeAre c={c} />
       <MissionVision c={c} />
       <Framework c={c} />
+      {c.shareStructureVisible && c.shareStructureRows.length > 0 && <ShareStructure c={c} />}
       <FutureInitiatives c={c} />
     </>
   )
