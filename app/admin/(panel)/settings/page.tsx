@@ -23,6 +23,11 @@ export default function SettingsEditor() {
             <TextField label="Short Name" value={data.shortName} onChange={(v) => update({ shortName: v })} maxLength={80} />
           </div>
           <TextField label="Tagline" value={data.tagline} onChange={(v) => update({ tagline: v })} maxLength={160} />
+          <div className="grid gap-4 sm:grid-cols-3">
+            <TextField label="Legal Name" value={data.legalName} onChange={(v) => update({ legalName: v })} maxLength={200} />
+            <TextField label="Corporation No." value={data.corporationNumber} onChange={(v) => update({ corporationNumber: v })} maxLength={40} />
+            <TextField label="Effective Date" value={data.incorporationDate} onChange={(v) => update({ incorporationDate: v })} maxLength={60} />
+          </div>
           <AdminImageField label="Logo" folder="misc" value={data.logoUrl} onChange={(v) => update({ logoUrl: v })} hint="Transparent PNG or WEBP recommended. Leave empty to use the default logo (public/logo.png)." />
           <AdminImageField label="Favicon" folder="misc" value={data.faviconUrl} onChange={(v) => update({ faviconUrl: v })} hint="Square PNG, at least 64x64." />
         </FormSection>

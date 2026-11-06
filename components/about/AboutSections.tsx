@@ -6,9 +6,9 @@ import { SmartImage } from '@/components/ui/SmartImage'
 import { Paragraphs } from '@/components/ui/Paragraphs'
 import { LegalNotice } from '@/components/ui/LegalNotice'
 import { Icon } from '@/lib/icons'
-import type { AboutContent } from '@/lib/validation'
+import type { AboutContent, SiteSettings } from '@/lib/validation'
 
-export function WhoWeAre({ c }: { c: AboutContent }) {
+export function WhoWeAre({ c, settings }: { c: AboutContent; settings: SiteSettings }) {
   return (
     <section className="bg-ivory" aria-labelledby="who-title">
       <Container className="grid gap-12 py-16 sm:py-24 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -23,6 +23,16 @@ export function WhoWeAre({ c }: { c: AboutContent }) {
               <Info className="mt-0.5 size-5 shrink-0 text-gold-deep" aria-hidden="true" />
               {c.statusNote}
             </p>
+          )}
+          {settings.corporationNumber && (
+            <div className="mt-5 border border-gold/40 bg-ivory p-5">
+              <p className="eyebrow text-gold-text">Certificate of Incorporation</p>
+              <p className="mt-3 font-serif text-2xl font-semibold text-ink">{settings.legalName}</p>
+              <dl className="mt-3 grid gap-3 text-sm sm:grid-cols-2">
+                <div><dt className="text-muted">Corporation No.</dt><dd className="font-semibold text-ink">{settings.corporationNumber}</dd></div>
+                <div><dt className="text-muted">Effective Date</dt><dd className="font-semibold text-ink">{settings.incorporationDate}</dd></div>
+              </dl>
+            </div>
           )}
         </Reveal>
         <Reveal delay={120} className="relative">

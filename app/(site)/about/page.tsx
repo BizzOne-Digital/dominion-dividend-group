@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/ui/PageHero'
 import { Framework, FutureInitiatives, MissionVision, ShareStructure, WhoWeAre } from '@/components/about/AboutSections'
-import { getAboutContent } from '@/lib/content'
+import { getAboutContent, getSiteSettings } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 }
 
 export default async function AboutPage() {
-  const c = await getAboutContent()
+  const [c, settings] = await Promise.all([getAboutContent(), getSiteSettings()])
   return (
     <>
       <PageHero label={c.heroLabel} title={c.heroTitle} intro={c.heroIntro} imageUrl={c.heroImageUrl} />
-      <WhoWeAre c={c} />
+      <WhoWeAre c={c} settings={settings} />
       <MissionVision c={c} />
       <Framework c={c} />
       {c.shareStructureVisible && c.shareStructureRows.length > 0 && <ShareStructure c={c} />}

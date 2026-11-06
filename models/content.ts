@@ -16,7 +16,7 @@ export const SiteSettingsModel = singleton(
   'SiteSettings',
   new Schema(
     {
-      key, companyName: String, shortName: String, tagline: String, logoUrl: String, faviconUrl: String,
+      key, companyName: String, legalName: String, corporationNumber: String, incorporationDate: String, shortName: String, tagline: String, logoUrl: String, faviconUrl: String,
       email: String, phone: String, linkedinUrl: String, footerText: String, legalDisclaimer: String,
       socialLinks: [new Schema({ label: String, url: String }, { _id: false })],
     },

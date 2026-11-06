@@ -20,6 +20,9 @@ export const DEFAULT_LEGAL_DISCLAIMER =
 
 export const defaultSiteSettings: SiteSettings = {
   companyName: 'Dominion Dividend Group Management Company',
+  legalName: 'Dominion Dividend Group Management Company Inc.',
+  corporationNumber: '1836069-3',
+  incorporationDate: 'November 5, 2026',
   shortName: 'Dominion Dividend Group',
   tagline: 'Discipline · Diversification · Growth',
   logoUrl: '',

@@ -35,6 +35,9 @@ export type IconItem = z.infer<typeof iconItem>
 /* ---------------- Site settings ---------------- */
 export const siteSettingsSchema = z.object({
   companyName: text(160),
+  legalName: text(200),
+  corporationNumber: text(40),
+  incorporationDate: text(60),
   shortName: text(80),
   tagline: text(160),
   logoUrl: imageUrl,

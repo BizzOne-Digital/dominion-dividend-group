@@ -86,6 +86,9 @@ export function Footer({ settings, contact, nav }: { settings: SiteSettings; con
 
         <div className="mt-12 border-t border-gold/20 pt-8">
           <p className="max-w-4xl text-xs leading-relaxed text-ivory/65">{settings.legalDisclaimer}</p>
+          {settings.corporationNumber && (
+            <p className="mt-4 text-xs text-ivory/75">{settings.legalName} &middot; Corporation No. {settings.corporationNumber} &middot; Effective Date: {settings.incorporationDate}</p>
+          )}
           <p className="mt-4 text-xs text-ivory/55">&copy; {year} {settings.companyName}. All rights reserved.</p>
         </div>
       </Container>

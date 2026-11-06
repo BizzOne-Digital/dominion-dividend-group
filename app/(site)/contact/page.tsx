@@ -19,7 +19,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
   const phone = c.showPhone ? c.phone || settings.phone : ''
 
   const items = [
-    { icon: Building2, label: 'Business', value: c.businessName, note: c.statusNote },
+    { icon: Building2, label: 'Business', value: c.businessName, note: c.statusNote || (settings.corporationNumber ? 'Corporation No. ' + settings.corporationNumber + ' · Effective Date: ' + settings.incorporationDate : '') },
     { icon: MapPin, label: 'Location', value: c.location },
     ...(email ? [{ icon: Mail, label: 'Email', value: email, href: `mailto:${email}` }] : []),
     ...(phone ? [{ icon: Phone, label: 'Phone', value: phone, href: `tel:${phone.replace(/[^+\d]/g, '')}` }] : []),
