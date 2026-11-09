@@ -70,6 +70,7 @@ export default function AboutEditor() {
               </>
             )}
           />
+          <TextArea label="Paragraph under tables" rows={6} value={data.shareStructureNote} onChange={(v) => update({ shareStructureNote: v })} maxLength={2500} />
         </FormSection>
 
         <FormSection title="Future Initiatives">
@@ -85,6 +86,7 @@ export default function AboutEditor() {
               </>
             )}
           />
+          <TextField label="Note under cards" value={data.initiativesNote} onChange={(v) => update({ initiativesNote: v })} maxLength={300} />
           <TextArea label="Disclaimer" rows={2} value={data.initiativesDisclaimer} onChange={(v) => update({ initiativesDisclaimer: v })} maxLength={800} />
           <AdminImageField label="Background Image" value={data.initiativesImageUrl} onChange={(v) => update({ initiativesImageUrl: v })} />
         </FormSection>

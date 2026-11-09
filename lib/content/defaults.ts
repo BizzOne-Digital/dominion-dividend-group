@@ -27,7 +27,7 @@ export const defaultSiteSettings: SiteSettings = {
   tagline: 'Discipline · Diversification · Growth',
   logoUrl: '',
   faviconUrl: '',
-  email: 'info@dominiondividendgroup.com',
+  email: 'bryan@dominiondividendgroup.com',
   phone: '',
   linkedinUrl: '',
   footerText:
@@ -155,14 +155,16 @@ export const defaultAbout: AboutContent = {
   initiativesDisclaimer:
     'These initiatives are under development and should not be interpreted as currently operating regulated businesses.',
   initiativesImageUrl: IMAGES.mountainsNight,
+  initiativesNote: 'Both initiatives are under development and are not currently operating.',
   shareStructureVisible: true,
   shareStructureTitle: 'Share Structure — Dominion Dividend Group Management Company Inc.',
   shareStructureRows: [
-    { label: 'Six classes of shares', value: 'Class A (Founder) · Class B (Seed Round 1) · Class C (Seed Round 2) · Class D (Ordinary) · Class E (Seed Round 1 successor) · Class F (Seed Round 2 successor)' },
+    { label: 'Six classes of shares', value: 'No shares of any class have been issued to date.\n\nClass A Founder Voting Shares · Class B Seed Round 1 Voting Shares · Class C Seed Round 2 Voting Shares · Class D Ordinary Voting Shares · Class E Seed Round 1 Economic Successor Shares · Class F Seed Round 2 Economic Successor Shares' },
     { label: 'Voting rights per share', value: 'A — 10 · B — 8 · C — 5 · D, E, F — 1' },
     { label: 'Dividend and surplus participation weights', value: 'A — 4 · B and E — 3 · C and F — 1.5 · D — 1' },
-    { label: 'Designed ownership on completion of Seed Round 2', value: 'Founder 56.7% · Seed Round 1 investors 33.3% · Seed Round 2 investors 10.0%' },
   ],
+  shareStructureNote:
+    "The participation weights are relative ratios only. They do not, by themselves, entitle any shareholder to any payment. Dividends on all classes are non-cumulative, and no class carries a guaranteed, cumulative, or fixed dividend. No share may be transferred without the prior consent of the corporation's directors. On a transfer or transmission, Class B shares convert into Class E shares and Class C shares convert into Class F shares. No share carries a redemption or retraction right. The corporation's Articles limit the number of shareholders to not more than fifty, not counting persons in the corporation's employment and certain former employees who became shareholders while employed.",
 }
 
 export const defaultContact: ContactContent = {
@@ -171,7 +173,7 @@ export const defaultContact: ContactContent = {
     'For corporate, professional services, or development-related inquiries, please submit the form below. A member of the team will respond by appointment.',
   businessName: 'Dominion Dividend Group Management Company Inc.',
   statusNote: '',
-  email: 'info@dominiondividendgroup.com',
+  email: 'bryan@dominiondividendgroup.com',
   phone: '',
   showPhone: false,
   location: 'Ontario, Canada',
@@ -222,8 +224,8 @@ export const defaultBusinessSections: BusinessSection[] = [
     icon: 'graduation-cap', imageUrl: '', bullets: [], visible: true, order: 4,
   },
   {
-    title: 'Corporate Seed Financing Development',
-    description: 'Preparing for a proposed C$5 million corporate seed financing initiative intended to support:',
+    title: 'Corporate Financing Readiness',
+    description: "The corporation is in its pre-launch development stage, and its corporate financing is arranged privately in accordance with its Articles.\n\nThe corporation's initial development programme comprises:",
     icon: 'coins', imageUrl: '',
     bullets: ['Corporate formation', 'Professional staffing', 'Regulatory preparation', 'Technology', 'Financial administration', 'Initial operating infrastructure'],
     visible: true, order: 5,

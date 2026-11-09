@@ -112,10 +112,11 @@ export function ShareStructure({ c }: { c: AboutContent }) {
             {c.shareStructureRows.map((r) => (
               <div key={r.label} className="grid gap-2 py-5 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] md:gap-8">
                 <dt className="font-serif text-xl font-semibold text-ink">{r.label}</dt>
-                <dd className="leading-relaxed text-text">{r.value}</dd>
+                <dd className="space-y-3 leading-relaxed text-text"><Paragraphs text={r.value} /></dd>
               </div>
             ))}
           </dl>
+          {c.shareStructureNote && <p className="mt-8 max-w-4xl leading-relaxed text-text">{c.shareStructureNote}</p>}
         </Reveal>
       </Container>
     </section>
@@ -145,6 +146,7 @@ export function FutureInitiatives({ c }: { c: AboutContent }) {
             </li>
           ))}
         </ul>
+        {c.initiativesNote && <p className="mt-8 text-lg text-ivory/90">{c.initiativesNote}</p>}
         <LegalNotice title="Important" tone="dark" className="mt-10">{c.initiativesDisclaimer}</LegalNotice>
       </Container>
     </section>
