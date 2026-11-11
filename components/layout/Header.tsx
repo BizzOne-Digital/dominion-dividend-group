@@ -19,18 +19,26 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
 
   useEffect(() => {
     if (!open) return
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    closeRef.current?.focus()
+    const body = document.body
+    const prevOverflow = body.style.overflow
+    const prevPadding = body.style.paddingRight
+    // Lock scroll without the page shifting when the scrollbar disappears.
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth
+    body.style.overflow = 'hidden'
+    if (scrollbar > 0) body.style.paddingRight = `${scrollbar}px`
+    // Focus after the slide finishes; preventScroll stops the browser jerking the panel into view.
+    const t = window.setTimeout(() => closeRef.current?.focus({ preventScroll: true }), 380)
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setOpen(false)
-        toggleRef.current?.focus()
+        toggleRef.current?.focus({ preventScroll: true })
       }
     }
     window.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = prev
+      window.clearTimeout(t)
+      body.style.overflow = prevOverflow
+      body.style.paddingRight = prevPadding
       window.removeEventListener('keydown', onKey)
     }
   }, [open])
@@ -92,9 +100,10 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
       {/* Mobile drawer: rendered OUTSIDE <header> because the header's backdrop-blur
           creates a containing block that would trap position:fixed children inside it.
           The clipping layer stops the off-screen panel from widening the page. */}
-      <div className={cn('fixed inset-0 z-[60] overflow-hidden xl:hidden', !open && 'pointer-events-none invisible')}>
+      {/* Kept mounted and visible so both open and close animate; `inert` removes it from focus/AT when closed. */}
+      <div className={cn('fixed inset-0 z-[60] overflow-hidden xl:hidden', !open && 'pointer-events-none')} inert={!open}>
       <div
-        className={cn('absolute inset-0 bg-ink/70 transition-opacity duration-300', open ? 'opacity-100' : 'opacity-0')}
+        className={cn('absolute inset-0 bg-ink/70 transition-opacity duration-[380ms] ease-out', open ? 'opacity-100' : 'opacity-0')}
         onClick={() => setOpen(false)}
         aria-hidden="true"
       />
@@ -104,7 +113,7 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
         aria-modal="true"
         aria-label="Navigation menu"
         className={cn(
-          'bg-green-gradient absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col border-l border-gold/40 transition-transform duration-300',
+          'bg-green-gradient absolute inset-y-0 right-0 flex w-full flex-col transition-transform duration-[380ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform sm:max-w-sm sm:border-l sm:border-gold/40',
           open ? 'translate-x-0' : 'translate-x-full',
         )}
       >
