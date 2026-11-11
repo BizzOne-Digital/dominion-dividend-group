@@ -36,6 +36,7 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
   }, [open])
 
   return (
+    <>
     <header className="sticky top-0 z-50 border-b border-gold/40 bg-ink/95 backdrop-blur supports-[backdrop-filter]:bg-ink/90">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-gold focus:px-4 focus:py-2 focus:text-ink">
         Skip to content
@@ -86,9 +87,12 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
           </button>
         </div>
       </div>
+    </header>
 
-      {/* Mobile drawer: wrapped in a clipping layer so the off-screen panel never widens the page */}
-      <div className={cn('fixed inset-0 z-50 overflow-hidden xl:hidden', !open && 'pointer-events-none invisible')}>
+      {/* Mobile drawer: rendered OUTSIDE <header> because the header's backdrop-blur
+          creates a containing block that would trap position:fixed children inside it.
+          The clipping layer stops the off-screen panel from widening the page. */}
+      <div className={cn('fixed inset-0 z-[60] overflow-hidden xl:hidden', !open && 'pointer-events-none invisible')}>
       <div
         className={cn('absolute inset-0 bg-ink/70 transition-opacity duration-300', open ? 'opacity-100' : 'opacity-0')}
         onClick={() => setOpen(false)}
@@ -141,6 +145,6 @@ export function Header({ nav, brand }: { nav: NavItem[]; brand: React.ReactNode 
         </div>
       </div>
       </div>
-    </header>
+    </>
   )
 }
